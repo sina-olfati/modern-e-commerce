@@ -1,7 +1,12 @@
+import "../components/ProudProducts.css";
+import CategoriesHeader from "../components/CategoriesHeader";
+import { Outlet } from "react-router";
+
 function Categories() {
   return (
     <>
-      <h1>categories</h1>
+      <CategoriesHeader />
+      <Outlet />
     </>
   );
 }
