@@ -2,12 +2,22 @@ import "./Navbar.css";
 import LogoImg from "../img/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import EmptyCart from "../img/cart/empty-cart.png";
+import CartWithItems from "./CartWithItems";
+import EmptyCart from "./EmptyCart";
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
+
+  // array for cart items
+  let cartObject = [];
+  // const getCartItem = () => {
+  //   for (let i = 1; i < items.length + 1; i++) {
+  //     cartObject[i] = 0;
+  //   }
+  //   return cartObject;
+  // };
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -46,25 +56,28 @@ function Navbar() {
         </div>
       </div>
 
+      {/* overlay */}
       <div
+        onClick={openCart}
         className={`page-overlay ${cart ? "open-flex" : "closed-flex"}`}
       ></div>
 
+      {/* cart */}
       <div className={`cart-div ${cart ? "open-cart" : "closed-cart"}`}>
         <div className="cart-title-btn">
-          <h2>Your Shopping Cart (0 items)</h2>
+          {cart ? (
+            <h2 className="cart-full-h2">Your Shopping Cart (0 items)</h2>
+          ) : (
+            <h2>Your Shopping Cart (0 items)</h2>
+          )}
           <i onClick={openCart} className="fa-sharp fa-solid fa-xmark"></i>
         </div>
+
+        {/* ?????????????????????????????? */}
         <div className="cart-body">
-          <div className="empty-cart">
-            <img src={EmptyCart} alt="empty-cart" />
-            <p>Your cart is empty</p>
-            <button onClick={openCart}>Keep Browsing</button>
-          </div>
+          {cartObject.length < 1 ? <EmptyCart /> : <CartWithItems />}
         </div>
       </div>
-
-      {/* --------------------------------------------- */}
 
       <nav className="navbar">
         <div className="container">
@@ -78,9 +91,21 @@ function Navbar() {
               />
             </Link>
             <div className="nav-links">
-              <Link to="/categories/all">categories</Link>
-              <Link to="/categories/lamps">lamps</Link>
-              <Link to="/categories/forniture">furniture</Link>
+              <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
+                categories
+              </Link>
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to="/categories/lamps"
+              >
+                lamps
+              </Link>
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to="/categories/furnitures"
+              >
+                furnitures
+              </Link>
               <i onClick={openCart} className="fa-solid fa-cart-shopping"></i>
             </div>
             <div className="hamburger-menu">

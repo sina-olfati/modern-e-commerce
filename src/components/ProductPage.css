@@ -1,9 +1,9 @@
 .product-page-div {
-    padding-top: 14rem;
+    margin-top: 14rem;
 }
 
 .product-div {
-    /* height: 100%; */
+    height: 65rem;
     margin-bottom: 10rem;
     width: 100%;
     display: flex;
@@ -13,7 +13,7 @@
 .product-big-name {
     position: absolute;
     font-size: 3.5rem;
-    top: 8px;
+    top: 20px;
     left: 50%;
     transform: translate(-50%);
 }
@@ -28,12 +28,11 @@
     width: 100%;
     height: 70%;
     display: flex;
-    justify-content: center;
-    margin-left: 1rem;
+    justify-content: flex-end;
 }
 
 .big-img img {
-    width: 75%;
+    width: 86%;
     height: 100%;
     object-fit: cover;
 }
@@ -182,106 +181,4 @@
 
 .title-desc {
     font-size: 1.65rem;
-}
-
-/* notify */
-
-.notify {
-    color: white;
-    background-color: #373737;
-    padding: 1.2rem 2.2rem;
-    z-index: 999999999;
-    font-size: 2rem;
-    position: absolute;
-    transform: translate(-50%);
-    top: -100%;
-    left: 50%;
-}
-
-.notify.slide-in {
-    animation-duration: 4s;
-    animation-delay: -1s;
-    animation-name: slidein;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slidein {
-    0% {
-        top: -100%;
-    }
-
-    40% {
-        top: 90px;
-    }
-
-    60% {
-        top: 90px;
-    }
-
-    100% {
-        top: -100%;
-    }
-}
-
-@media (max-width:900px) {
-    .product-right {
-        padding: 16rem 2rem 8rem 2rem;
-    }
-}
-
-@media (max-width:850px) {
-    .product-div {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        margin-bottom: 6rem;
-
-    }
-
-    .product-right {
-        width: 100%;
-        padding: 3rem 2rem 4rem 2rem;
-    }
-
-    .product-left {
-        width: 100%;
-    }
-
-    .product-big-name {
-        width: 31rem;
-        text-align: center;
-    }
-}
-
-@media (max-width:570px) {
-
-    .specifications {
-        gap: 2rem;
-        flex-direction: column;
-        margin-bottom: 28rem;
-    }
-}
-
-@media (max-width:450px) {
-    .product-quant {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .product-spec {
-        margin-bottom: 2rem;
-    }
-
-    .atc-buy {
-        gap: 2rem;
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .atc-buy button {
-        width: 100%;
-    }
-
-
 }
