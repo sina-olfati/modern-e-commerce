@@ -24,15 +24,10 @@ function CartItem() {
   const [deleteItem, setDeleteItem] = useState(cartItem);
 
   const removeFromCart = (id) => {
-    const updateCart = cartItem.filter((item) => item.id !== id);
+    const updateCart = deleteItem.filter((item) => item.id !== id);
     setDeleteItem(updateCart);
-    const json = JSON.stringify(cartItem.id);
-    localStorage.removeItem("cartItem", json);
+    console.log(updateCart);
   };
-
-  useEffect(() => {
-    setCartItem(deleteItem);
-  }, [deleteItem, setCartItem]);
 
   return (
     <>
